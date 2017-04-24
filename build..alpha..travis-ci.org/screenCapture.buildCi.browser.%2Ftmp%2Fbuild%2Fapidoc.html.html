@@ -1,0 +1,129 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/tsuyoshiwada/sweet-scroll">sweet-scroll (v2.2.0)</a>
+</h1>
+<h4>Modern and the sweet smooth scroll library.</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sweet-scroll">module sweet-scroll</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sweet-scroll.sweet-scroll">
+            function <span class="apidocSignatureSpan"></span>sweet-scroll
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">sweet-scroll.</span>defaults</span>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sweet-scroll" id="apidoc.module.sweet-scroll">module sweet-scroll</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sweet-scroll.sweet-scroll" id="apidoc.element.sweet-scroll.sweet-scroll">
+        function <span class="apidocSignatureSpan"></span>sweet-scroll
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SweetScroll() {
+  var options = arguments.length &gt; 0 &amp;&amp; arguments[0] !== undefined ? arguments[0] : {};
+  var container = arguments.length &gt; 1 &amp;&amp; arguments[1] !== undefined ? arguments[1] : "body, html";
+  classCallCheck(this, SweetScroll);
+
+  this.isSSR = !canUseDOM;
+  this.options = merge({}, SweetScroll.defaults, options);
+  this.container = this.getContainer(container);
+
+  if (this.container == null) {
+    this.header = null;
+    this.tween = null;
+
+    if (!this.isSSR) {
+      if (!/comp|inter|loaded/.test(doc.readyState)) {
+        this.log("Should be initialize later than DOMContentLoaded.");
+      } else {
+        this.log("Not found scrollable container. =&gt; \"" + container + "\"");
+      }
+    }
+  } else {
+    this.header = $(this.options.header);
+    this.tween = new ScrollTween(this.container);
+    this._trigger = null;
+    this._shouldCallCancelScroll = false;
+    this.bindContainerClick();
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
